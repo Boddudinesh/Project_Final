@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bapatla Engineering College</title>
+        <style>
+    html,body{
+    min-width: 1100px;
+    font-family:emboss;
+    font-size:15px;
+    }
+    object{
+    width:80%;
+    }
+  #main{
+    margin-top:30px;
+    margin-bottom:30px;
+    margin-left:100px;
+    background-color:white;
+    margin-right:70px;
+    border:1px grey solid;
+    border-radius:5px;
+  }
+  body{
+    #background-color:#91E0FF;
+    background-image:url('static/becb.jpg');
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
+  th{
+    background-color:#00ABF0;
+    text-align:center;
+    color:white;
+    width:40%;
+    height:50%;
+    font-weight: bold;
+    font-size:20px;
+    }
+    thead{
+    text-align:center;
+    color:white;
+    width:40px;
+    height:50px;
+
+    }
+    td{
+        text-align:center;
+        background-color:#91E0FF;
+    }
+    #details>td{
+        text-align:center;
+        background-color:#91E0FF;
+        font-weight:bold;
+    }
+    table{
+       border-radius:5px;
+        border:3px black;
+        width:80%;
+        border-collapse:collapse;
+        margin:auto;
+        min-height:235px;
+    }
+    #sem{
+background: rgba(145, 224, 255, 0.51);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(145, 224, 255, 0.3);
+width:80%;
+font-weight:bold;
+    }
+    #se{
+    background: rgba(0, 171, 240, 1);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(0, 171, 240, 0.3);
+width:80%;
+font-weight:bold;
+color:white;
+font-size:20px;
+
+    }
+    .a{
+      border:2px black;
+      font-size:20px;
+      border-radius:5px;
+      text-decoration:dotted;
+      background-color:#D8D9DA;
+      font-family:emboss;
+
+    }
+    .a:hover{
+      border:2px white;
+      background-color:#75C2F6;
+      color:white;
+    }
+    .det{
+        padding:2px;
+    }
+
+</style>
+</head>
+<body onload="alert('Thanks for your visit to our website')">
+<marquee direction="right" behavior="alternate" style="color:red;font-weight:bold;font-size:20px;">***If Same Marks are scored by two students then their rank will be considered based on name***</marquee>
+    <div id="main" align="center">
+        <img src="static/bec.png"  width="100%" style="border-radius:5px" height="300px"/>
+        <div style="text-align:left;">
+            <div  style="background-color:#D8D9DA;width:fit-content;border-radius:5px;float:right;">
+          <button type="button" class="a" ><a href="/" style="text-decoration:dotted;font-weight:bold;color:black">Home</a></button>
+          <button type="button" class="a"><a href="/aboutus" style="text-decoration:dotted;font-weight:bold;color:black">About Us</a></button>
+        </div>
+          &#10148;<a href="/" style="color:blue;text-decoration:dotted;font-size:15px;font-weight:bold;">Home</a>&nbsp&#10148;
+            <a href="#" style="color:blue;text-decoration:dotted;font-size:15px;font-weight:bold;">Results</a>
+
+      </div>
+        <img/>
+        <div id="details">
+         <table style="border:3px black;border-radius:5px;width:80%;border-collapse:separate;margin:auto;">
+            <tr>
+                <th>Regd.No.</th>
+                <td id="regdno">{{R}}</td>
+                <td rowspan="3"> <img class="det" src="static/photos/{{r}}.png" border="1px"   width="220px" height="220px" alt="Photo"/></td>
+            </tr>
+            <tr>
+                <th>Full Name</th>
+                <td id="name">{{n}}</td>
+            </tr>
+            <tr>
+                <th>Father Name</th>
+                <td id="fname">{{f}}</td>
+            </tr>
+        </table>
+        </div>
+        <div  id="sem1">
+            {% for i in range(0,l): %}
+            <h3>Semester-{{sem[i]}}</h3>
+            <img src="{{img[i]}}?v={{r}}" alt="Plot Image">
+            <object data="static/sem{{sem[i]}}.html?v={{r}}" type="text/html" height="405px" width="100%"></object>
+            <div id="sem">
+                Total : {{marks[index[i]]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSem Rank : {{marks[index[i]+1]}}<br/>
+                SGPA : {{marks[index[i]+2]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSGPA Rank : {{marks[index[i]+3]}}
+            </div><br/><br/>
+            {% endfor %}
+            <br/><br/>
+            <div >
+                <img src="static/marks.png?v={{r}}"  alt="Scatter"/>
+                <img src="static/sgpa.png?v={{r}}"  alt="Scatter"/>
+            </div>
+            <div id="se">
+                Grand Total : {{gt}}<br/>&nbsp&nbsp&nbspPercentage : {{perc}}<br/>&nbsp&nbsp&nbspCGPA : {{cgpa}}
+            </div><br/><br/>
+
+        </div>
+        <div style="background-color:grey;border-radius:3px;">
+          <h4 style="margin-bottom:0px;">Copyright&nbsp&#xa9;&nbsp2023&nbsp|&nbspAll rights reserved.</h4>
+      </div>
+    </div>
+</body>
+</html>
