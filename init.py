@@ -17,7 +17,8 @@ def about():
 @app.route('/result',methods=['GET','POST'])
 def get_plot():
     k=request.form['reg']
-    r=k.lower()
+    r=k.strip()
+    r=r.lower()
     cnt = 0
     sub = 0
     gt = 0
@@ -191,7 +192,7 @@ def get_plot():
                     g.append(grade[t])
                     c.append(cred[t])
                 styles=f"<head><link href='styles.css?v={r}' rel='stylesheet'></head><center>"
-                with open(f"static\sem{i}.html","w+") as f:
+                with open(f"static/sem{i}.html","w+") as f:
                     f.write(styles)
                     f.write(html_table)
                     f.write("</center>")
@@ -242,7 +243,7 @@ def get_plot():
 app.secreat_key='some secreat that you will never guss'
 
 if __name__=="__main__":
-    app.run('127.0.0.1',debug=True)
+    app.run(host="0.0.0.0",port=80,debug=True)
 
 
 
