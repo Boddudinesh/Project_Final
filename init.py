@@ -34,6 +34,7 @@ def get_plot():
     total_s = []
     g = []
     c = []
+    percent=[]
     plt.rcParams['figure.figsize'] = (9, 5)
 
     if ch == "acs":
@@ -121,6 +122,7 @@ def get_plot():
                     subj_rank = marks[-14:-7]
                     sub += 7
                     gt += total1
+                    percent.append(int(total1/7))
                 elif len(cols) == 39:
                     subjects = cols[7:15]
                     # 8
@@ -135,6 +137,7 @@ def get_plot():
                     subj_rank = marks[-16:-8]
                     sub += 8
                     gt += total1
+                    percent.append(int(total1/8))
                 elif len(cols) == 43:
                     # 9
                     subjects = cols[7:16]
@@ -149,6 +152,7 @@ def get_plot():
                     subj_rank = marks[-18:-9]
                     sub += 9
                     gt += total1
+                    percent.append(int(total1/9))
 
                 p = pd.DataFrame({r: sub_marks, "1st ranker": topper_m}, index=subjects)
                 ax = p.plot.bar()
@@ -210,17 +214,17 @@ def get_plot():
         c_t+=c[m]
     plt.clf()
     x_ax = sems
-    y_ax = total_m
+    y_ax = percent
     plt1.xticks(x_ax)
-    plt1.ylim((0, 1000))
+    plt1.ylim((0, 100))
     plt1.plot(x_ax, y_ax, marker="o")
     ax=plt1.gca()
     ax.set_facecolor("#e0e0e0")
     for i, txt in enumerate(y_ax):
         plt1.annotate(txt, (x_ax[i], y_ax[i]), textcoords="offset points", xytext=(0,5), ha='center')
     plt1.xlabel("Semester",fontweight="bold")
-    plt1.ylabel("Total Marks",fontweight="bold")
-    plt.title("Total Marks Graph")
+    plt1.ylabel("Total Marks(%)",fontweight="bold")
+    plt.title("Total Marks(%) Graph")
     plt1.savefig("static/marks.png")
     plt1.clf()
     x_ax = sems
