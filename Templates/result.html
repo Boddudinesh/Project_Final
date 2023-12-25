@@ -111,7 +111,16 @@ font-size:20px;
                 opacity:0.5;
             }
         }
-
+    #lin:hover{
+        text-decoration:underline;
+        font-weight:bold;
+        color:blue;
+    }
+    #lin{
+        text-decoration:none;
+        font-weight:bold;
+        color:blue;
+    }
 </style>
 </head>
 <body >
@@ -152,7 +161,8 @@ font-size:20px;
             <object data="static/sem{{sem[i]}}.html?v={{r}}" type="text/html" height="435px" width="100%"></object>
             <div id="sem">
                 Total : {{marks[index[i]]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSem Rank : {{marks[index[i]+1]}}<br/>
-                SGPA : {{marks[index[i]+2]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSGPA Rank : {{marks[index[i]+3]}}
+                SGPA : {{marks[index[i]+2]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSGPA Rank : {{marks[index[i]+3]}}<br/><br/>
+                <a id="lin" href="{{lin[i]}}">Click here to get detailed results</a><br/><br/>
             </div><br/><br/>
             {% endfor %}
             <br/><br/>
