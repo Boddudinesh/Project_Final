@@ -24,6 +24,7 @@ def get_plot():
         k=request.form['reg']
         r=k.strip()
         r=r.lower()
+        dep=r[4:6].upper()
         cnt = 0
         sub = 0
         gt = 0
@@ -35,13 +36,14 @@ def get_plot():
         x_ax = []
         y_ax = []
         sems = []
+        links=[]
         total_m = []
         total_s = []
         g = []
         c = []
         percent=[]
         plt.rcParams['figure.figsize'] = (9, 5)
-
+        ma=pd.read_excel("static/GeneratedLinks.xlsx")
         if ch == "acs":
             flag = 1
         elif ch == "acm":
@@ -99,7 +101,9 @@ def get_plot():
                 except:
                     return render_template('Error.html')
 
-
+                data =ma.loc[ma["File Name"] == f"{dep}-{y}.{i}.xlsx"]
+                dat = data.values.tolist()[0]
+                links.append(dat[1])
                 re = df["Reg No"].tolist()
                 if r in re:
                     x = df.loc[df["Reg No"] == r]
@@ -247,7 +251,7 @@ def get_plot():
         plt1.savefig("static/sgpa.png")
         if cnt == 0:
             return render_template('Error.html')
-        return render_template('result.html',r=r,R=r.upper(),n=name,index=index,sem=sems,marks=ranks_t,gt=gt,perc=round(((gt/sub*100)/100),2),cgpa=round((gc_t/c_t),5),f=fname,l=len(img_list),img=img_list)
+        return render_template('result.html',r=r,R=r.upper(),n=name,lin=links,index=index,sem=sems,marks=ranks_t,gt=gt,perc=round(((gt/sub*100)/100),2),cgpa=round((gc_t/c_t),5),f=fname,l=len(img_list),img=img_list)
 
 
 app.secreat_key='some secreat that you will never guss'
