@@ -10,7 +10,7 @@ from threading import Lock
 
 app=Flask(__name__)
 lock = Lock()
-
+files=[]
 
 @app.route('/')
 def hello():
@@ -179,6 +179,7 @@ def get_plot():
                     plt.savefig(f"static/{r}_{i}.png")
                     plt.close()
                     img_list.append(f"static/{r}_{i}.png")
+                    files.append(f"static/{r}_{i}.png")
                     grade=[]
                     ranks_t.append(total1)
                     total_m.append(total1)
@@ -214,6 +215,7 @@ def get_plot():
                         f.write(html_table)
                         f.write("</center>")
                     cnt += 1
+                    files.append(f"static/{r}_sem{i}.html")
                 else:
                     continue
         except:
@@ -239,7 +241,8 @@ def get_plot():
         plt1.ylabel("Total Marks(%)",fontweight="bold")
         plt.title("Total Marks(%) Graph")
         plt1.savefig(f"static/marks_{r}.png")
-        mar.append(f"static/sgpa_{r}.png")
+        mar.append(f"static/marks_{r}.png")
+        files.append(f"static/marks_{r}.png")
         plt1.clf()
         plt1.close()
         x_ax = sems
@@ -256,11 +259,19 @@ def get_plot():
         plt1.title("SGPA Graph")
         plt1.savefig(f"static/sgpa_{r}.png")
         mar.append(f"static/sgpa_{r}.png")
+        mar.append(f"static/sgpa_{r}.png")
         plt1.close()
         if cnt == 0:
             return render_template('Error.html')
         return render_template('result.html',r=r,R=r.upper(),n=name,lin=links,mar=mar,index=index,sem=sems,marks=ranks_t,gt=gt,perc=round(((gt/sub*100)/100),2),cgpa=round((gc_t/c_t),5),f=fname,l=len(img_list),img=img_list)
-
+@app.after_request
+def after_request(response):
+    for file_path in files:
+        try:
+            os.remove(file_path)
+        except:
+            continue
+    return response
 
 app.secreat_key='some secreat that you will never guss'
 
