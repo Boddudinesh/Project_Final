@@ -264,15 +264,6 @@ def get_plot():
         if cnt == 0:
             return render_template('Error.html')
         return render_template('result.html',r=r,R=r.upper(),n=name,lin=links,mar=mar,index=index,sem=sems,marks=ranks_t,gt=gt,perc=round(((gt/sub*100)/100),2),cgpa=round((gc_t/c_t),5),f=fname,l=len(img_list),img=img_list)
-@app.after_request
-def after_request(response):
-    for file_path in files:
-        try:
-            os.remove(file_path)
-        except:
-            continue
-    return response
-
 app.secreat_key='some secreat that you will never guss'
 
 if __name__=="__main__":
