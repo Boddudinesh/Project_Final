@@ -208,7 +208,7 @@ def get_plot():
                         g.append(grade[t])
                         c.append(cred[t])
                     styles=f"<head><link href='styles.css?v={r}' rel='stylesheet'></head><center>"
-                    with open(f"static/sem{i}.html","w+") as f:
+                    with open(f"static/{r}_sem{i}.html","w+") as f:
                         f.write(styles)
                         f.write(html_table)
                         f.write("</center>")
