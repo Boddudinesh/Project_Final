@@ -203,8 +203,8 @@ def get_plot():
                         else:
                             grade.append('0')
 
-                    tabl = pd.DataFrame(list(zip(subj, sub_marks, grade, cred, subj_rank)),
-                                        columns=['Subject Title & Code', 'Marks', 'Grade','CR','Subject Rank'])
+                    tabl = pd.DataFrame(list(zip(subj, sub_marks, subj_rank, grade, cred)),
+                                        columns=['Subject Title & Code', 'Marks','Subject Rank', 'Grade','CR'])
                     html_table = tabl.to_html(index=False)
                     for t in range(len(grade)):
                         g.append(grade[t])
