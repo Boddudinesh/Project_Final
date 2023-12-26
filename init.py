@@ -238,7 +238,6 @@ def get_plot():
         plt1.ylabel("Total Marks(%)",fontweight="bold")
         plt.title("Total Marks(%) Graph")
         plt1.savefig("static/marks.png")
-        //mard.append(f"static/marks_{r}.png")
         plt1.clf()
         plt1.close()
         x_ax = sems
@@ -254,7 +253,7 @@ def get_plot():
         plt1.ylabel("SGPA",fontweight="bold")
         plt1.title("SGPA Graph")
         plt1.savefig("static/sgpa.png")
-        //mard.append(f"static/sgpa_{r}.png")
+    
         plt1.close()
         if cnt == 0:
             return render_template('Error.html')
