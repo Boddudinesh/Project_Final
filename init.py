@@ -165,7 +165,7 @@ def get_plot():
                         gt += total1
                         percent.append(int(total1/9))
 
-                    p = pd.DataFrame({r: sub_marks, "1st ranker(Total Marks)": topper_m}, index=subjects)
+                    p = pd.DataFrame({r: sub_marks, "1st ranker (Total Marks)": topper_m}, index=subjects)
                     ax = p.plot.bar()
                     plt.yticks(range(0, 160, 20))
                     plt.xticks(rotation=360)
