@@ -158,7 +158,7 @@ font-size:20px;
             {% for i in range(0,l): %}
             <h3>Semester-{{sem[i]}}</h3>
             <img src="{{img[i]}}?v={{r}}" alt="Plot Image">
-            <object data="static/{r}_sem{{sem[i]}}.html" type="text/html" height="435px" width="100%"></object>
+            <object data="static/sem{{sem[i]}}.html" type="text/html" height="435px" width="100%"></object>
             <div id="sem">
                 Total : {{marks[index[i]]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSem Rank : {{marks[index[i]+1]}}<br/>
                 SGPA : {{marks[index[i]+2]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSGPA Rank : {{marks[index[i]+3]}}<br/><br/>
@@ -167,8 +167,8 @@ font-size:20px;
             {% endfor %}
             <br/><br/>
             <div >
-                <img src="{{mar[0]}}"  alt="Scatter"/>
-                <img src="{{mar[1]}}"  alt="Scatter"/>
+                <img src="static/marks.png"  alt="Scatter"/>
+                <img src="static/sgpa.png"  alt="Scatter"/>
             </div>
             <div id="se">
                 Grand Total : {{gt}}<br/>&nbsp&nbsp&nbspPercentage : {{perc}}<br/>&nbsp&nbsp&nbspCGPA : {{cgpa}}
