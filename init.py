@@ -33,6 +33,7 @@ def get_plot():
         ch = r[3:6]
         ch2 = r[:3]
         img_list = []
+        mard=[]
         ranks_t = []
         x_ax = []
         y_ax = []
@@ -237,6 +238,7 @@ def get_plot():
         plt1.ylabel("Total Marks(%)",fontweight="bold")
         plt.title("Total Marks(%) Graph")
         plt1.savefig("static/marks_{r}.png")
+        mard.append(f"static/marks_{r}.png")
         plt1.clf()
         plt1.close()
         x_ax = sems
@@ -252,10 +254,11 @@ def get_plot():
         plt1.ylabel("SGPA",fontweight="bold")
         plt1.title("SGPA Graph")
         plt1.savefig("static/sgpa_{r}.png")
+        mard.append(f"static/sgpa_{r}.png")
         plt1.close()
         if cnt == 0:
             return render_template('Error.html')
-        return render_template('result.html',r=r,R=r.upper(),n=name,lin=links,index=index,sem=sems,marks=ranks_t,gt=gt,perc=round(((gt/sub*100)/100),2),cgpa=round((gc_t/c_t),5),f=fname,l=len(img_list),img=img_list)
+        return render_template('result.html',r=r,R=r.upper(),n=name,lin=links,mar=mard,index=index,sem=sems,marks=ranks_t,gt=gt,perc=round(((gt/sub*100)/100),2),cgpa=round((gc_t/c_t),5),f=fname,l=len(img_list),img=img_list)
 
 
 app.secreat_key='some secreat that you will never guss'
