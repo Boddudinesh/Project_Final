@@ -176,6 +176,7 @@ def get_plot():
                         ax.annotate(f'{p.get_height()}', (p.get_x() + p.get_width() / 2., p.get_height()), ha='center',
                                     va='bottom', fontsize=10, color='black', xytext=(0, 5), textcoords='offset points')
                     plt.savefig(f"static/myplot{i}.png")
+                    plt.close()
                     img_list.append(f"static/myplot{i}.png")
                     grade=[]
                     ranks_t.append(total1)
@@ -238,6 +239,7 @@ def get_plot():
         plt.title("Total Marks(%) Graph")
         plt1.savefig("static/marks.png")
         plt1.clf()
+        plt1.close()
         x_ax = sems
         y_ax = total_s
         plt1.xticks(x_ax)
@@ -251,6 +253,7 @@ def get_plot():
         plt1.ylabel("SGPA",fontweight="bold")
         plt1.title("SGPA Graph")
         plt1.savefig("static/sgpa.png")
+        plt1.close()
         if cnt == 0:
             return render_template('Error.html')
         return render_template('result.html',r=r,R=r.upper(),n=name,lin=links,index=index,sem=sems,marks=ranks_t,gt=gt,perc=round(((gt/sub*100)/100),2),cgpa=round((gc_t/c_t),5),f=fname,l=len(img_list),img=img_list)
