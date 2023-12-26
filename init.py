@@ -175,9 +175,9 @@ def get_plot():
                     for p in ax.patches:
                         ax.annotate(f'{p.get_height()}', (p.get_x() + p.get_width() / 2., p.get_height()), ha='center',
                                     va='bottom', fontsize=10, color='black', xytext=(0, 5), textcoords='offset points')
-                    plt.savefig(f"static/myplot{i}.png")
+                    plt.savefig(f"static/{r}_{i}.png")
                     plt.close()
-                    img_list.append(f"static/myplot{i}.png")
+                    img_list.append(f"static/{r}_{i}.png")
                     grade=[]
                     ranks_t.append(total1)
                     total_m.append(total1)
