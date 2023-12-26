@@ -1,4 +1,3 @@
-
 import matplotlib
 import pandas as pd
 matplotlib.use('Agg')
@@ -237,7 +236,7 @@ def get_plot():
         plt1.xlabel("Semester",fontweight="bold")
         plt1.ylabel("Total Marks(%)",fontweight="bold")
         plt.title("Total Marks(%) Graph")
-        plt1.savefig("static/marks.png")
+        plt1.savefig("static/marks_{r}.png")
         plt1.clf()
         plt1.close()
         x_ax = sems
@@ -252,7 +251,7 @@ def get_plot():
         plt1.xlabel("Semester",fontweight="bold")
         plt1.ylabel("SGPA",fontweight="bold")
         plt1.title("SGPA Graph")
-        plt1.savefig("static/sgpa.png")
+        plt1.savefig("static/sgpa_{r}.png")
         plt1.close()
         if cnt == 0:
             return render_template('Error.html')
