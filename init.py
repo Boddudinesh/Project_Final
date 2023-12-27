@@ -198,7 +198,7 @@ def get_plot():
                             grade.append('7')
                         elif m>=50 and m<60:
                             grade.append('6')
-                        elif m>=35 and m<50:
+                        elif m>35 and m<50:
                             grade.append('4')
                         else:
                             grade.append('0')
